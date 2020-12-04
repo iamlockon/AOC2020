@@ -19,6 +19,7 @@ var list []Password
 func Part1() {
 	cwd, _ := os.Getwd()
 	file, err := os.Open(path.Join(cwd,"/D2/d2.txt"))
+	defer file.Close()
 	if err != nil {
 		fmt.Println("Error opening file: ", err)
 	}
@@ -30,7 +31,7 @@ func Part1() {
 		var ch rune
 		var passwd string
 		fmt.Sscanf(val, "%d-%d %c: %s", &mn, &mx, &ch, &passwd)
-		fmt.Println(mn, mx, ch, passwd)
+		// fmt.Println(mn, mx, ch, passwd)
 		
 		var cnt = 0
 		for _, c := range passwd {

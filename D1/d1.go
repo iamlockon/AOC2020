@@ -22,6 +22,7 @@ func init() {
 func Part1() {
 	s, _ :=  os.Getwd()
 	file, err := os.Open(path.Join(s,"D1/d1.txt"))
+	defer file.Close()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "read file: ", err)
 	}
