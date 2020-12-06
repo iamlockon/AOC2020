@@ -56,10 +56,6 @@ func Part1() {
 		// val := "BFFFBBFRRR"
 		sr, sc := val[:7], val[7:]
 		r, c := GetRow(sr), GetCol(sc)
-		fmt.Println(r, c)
-		if exist[r*8+c] == true {
-			fmt.Println("repeat:", r*8+c)
-		}
 		exist[r*8+c] = true
 		if r*8+c > mx {
 			mx = r*8+c
@@ -74,7 +70,6 @@ func Part1() {
 
 
 func Part2() {
-	fmt.Println("===========")
 	for id := 6; id < 822; id++ {
 		if exist[id] == false && exist[id-1] == true && exist[id+1] == true {
 			fmt.Println(id)
