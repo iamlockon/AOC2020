@@ -109,58 +109,47 @@ func Part2() {
 	pidReg := regexp.MustCompile(`^[0-9]{9}$`)
 	for i := 0; i < len(passports); i++ {
 		p := passports[i]
-		fmt.Println(p)
 		if p.Byr < 1920 || p.Byr > 2002 {
-			fmt.Println("byr: ", p.Byr)
 			continue
 		}
 		if p.Iyr < 2010 || p.Iyr > 2020 {
-			fmt.Println("Iyr: ", p.Iyr)
 			continue
 		}
 		if p.Eyr < 2020 || p.Eyr > 2030 {
-			fmt.Println("Eyr: ", p.Eyr)
 			continue
 		}
 
 		heiOK := false
 		if !strings.ContainsAny(p.Hgt, "cm") {
 			if !strings.ContainsAny(p.Hgt, "in") {
-				fmt.Println("Hgt1: ", p.Hgt)
 				continue
 			}
 		} else {
 			h, _ := strconv.Atoi(strings.TrimSuffix(p.Hgt, "cm"))
 			if h < 150 || h > 193 {
-				fmt.Println("Hgt2: ", h)
 				continue
 			}
 			heiOK = true
 		}
 		if !heiOK {
 			if !strings.ContainsAny(p.Hgt, "in") {
-				fmt.Println("Hgt3: ", p.Hgt)
 				continue
 			} else {
 				h, _ := strconv.Atoi(strings.TrimSuffix(p.Hgt, "in"))
 				if h < 59 || h > 76 {
-					fmt.Println("Hgt4: ", h)
 					continue
 				}
 			}
 		}
 
 		if !hclReg.MatchString(p.Hcl) {
-			fmt.Println("Hcl: ", p.Hcl)
 			continue
 		}
 		 
 		if _, ok := eclMap[p.Ecl]; !ok {
-			fmt.Println("Ecl: ", p.Ecl)
 			continue
 		}
 		if !pidReg.MatchString(string(p.Pid)) {
-			fmt.Println("Pid: ", p.Pid)
 			continue
 		}
 		cnt++

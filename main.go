@@ -5,6 +5,7 @@ import (
 	"github.com/iamlockon/AOC2020/D2"
 	"github.com/iamlockon/AOC2020/D3"
 	"github.com/iamlockon/AOC2020/D4"
+	"github.com/iamlockon/AOC2020/D5"
 )
 
 func main() {
@@ -19,4 +20,7 @@ func main() {
 
 	D4.Part1()
 	D4.Part2()
+
+	D5.Part1()
+	D5.Part2()
 }
