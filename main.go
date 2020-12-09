@@ -9,6 +9,7 @@ import (
 	"github.com/iamlockon/AOC2020/D6"
 	"github.com/iamlockon/AOC2020/D7"
 	"github.com/iamlockon/AOC2020/D8"
+	"github.com/iamlockon/AOC2020/D9"
 )
 
 func main() {
@@ -35,4 +36,7 @@ func main() {
 
 	D8.Part1()
 	D8.Part2()
+
+	D9.Part1()
+	D9.Part2()
 }
